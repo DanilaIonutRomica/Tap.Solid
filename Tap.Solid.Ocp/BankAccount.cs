@@ -1,8 +1,8 @@
 ﻿namespace Tap.Solid.Ocp
 {
-    public class BankAccount
+    public abstract class BankAccount
     {
-        public decimal AccountBalance { get; private set; }
+        public decimal AccountBalance { get;  set; }
         public AccountType AccountType { get; private set; }
 
         public BankAccount(decimal initialBalance, AccountType accountType)
@@ -11,21 +11,36 @@
             AccountType = accountType;
         }
 
-        public void ExtractMoney(decimal value)
+        public abstract void ExtractMoney(decimal value);
+    }
+    public class RegularBankAccount : BankAccount
+    {
+        public RegularBankAccount(decimal initialBalance, AccountType accountType) : base(initialBalance, accountType)
         {
-            var commision = 0m;
+        }
 
-            if(AccountType == AccountType.Regular)
-            {
-                commision = value * 0.02m;
-            }
-
-            if (AccountType == AccountType.Gold)
-            {
-                commision = value * 0.01m;
-            }
-
-            AccountBalance = AccountBalance - (value + commision);
+        public override void  ExtractMoney(decimal value)
+        {
+            var comision = 0m;
+            comision = value * 0.02m;
+            AccountBalance = AccountBalance - (value + comision);
+            
         }
     }
+    public class GoldBankAccount : BankAccount
+    {
+        public GoldBankAccount(decimal initialBalance, AccountType accountType) : base(initialBalance, accountType)
+        {
+           
+        }
+
+        public override void ExtractMoney(decimal value)
+        {
+           var comision = 0m;
+            comision = value * 0.01m;
+            AccountBalance = AccountBalance - (value + comision);
+
+        }
+    }
+  
 }
