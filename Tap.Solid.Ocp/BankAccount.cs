@@ -2,7 +2,7 @@
 {
     public abstract class BankAccount
     {
-        public decimal AccountBalance { get;  set; }
+        public decimal AccountBalance { get; protected  set; }
         public AccountType AccountType { get; private set; }
 
         public BankAccount(decimal initialBalance, AccountType accountType)

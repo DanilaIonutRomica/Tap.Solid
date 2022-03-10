@@ -12,7 +12,7 @@
             //make phone call
         }
 
-        internal override void SendEmail(string emailAdress)
+       /* internal override void SendEmail(string emailAdress)
         {
             throw new NotImplementedException();
         }
@@ -20,6 +20,6 @@
         internal override void BrowseWeb(string webAdress)
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

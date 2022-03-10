@@ -4,7 +4,7 @@
     {
         internal abstract void MakePhoneCall(string phoneNumber);
         internal abstract void SendSms(string phoneNumber);
-        internal abstract void SendEmail(string emailAdress);
-        internal abstract void BrowseWeb(string webAdress);
+       // internal abstract void SendEmail(string emailAdress);
+       // internal abstract void BrowseWeb(string webAdress);
     }
 }

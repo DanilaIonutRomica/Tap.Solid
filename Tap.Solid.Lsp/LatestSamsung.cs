@@ -2,7 +2,7 @@
 {
     internal class LatestSamsung : MobilePhone
     {
-        internal override void BrowseWeb(string webAdress)
+        internal  void BrowseWeb(string webAdress)
         {
             //browse web
         }
@@ -12,7 +12,7 @@
             //make phone call
         }
 
-        internal override void SendEmail(string emailAdress)
+        internal  void SendEmail(string emailAdress)
         {
             //send email
         }
