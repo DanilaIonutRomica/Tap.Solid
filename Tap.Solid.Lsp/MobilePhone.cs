@@ -7,4 +7,9 @@
        // internal abstract void SendEmail(string emailAdress);
        // internal abstract void BrowseWeb(string webAdress);
     }
+    internal abstract class SmartPhone :MobilePhone
+    {
+        internal abstract void SendEmail(string emailAdress);
+        internal abstract void BrowseWeb(string webAdress);
+    }
 }

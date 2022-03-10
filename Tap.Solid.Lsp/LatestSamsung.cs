@@ -1,8 +1,8 @@
 ﻿namespace Tap.Solid.Lsp
 {
-    internal class LatestSamsung : MobilePhone
+    internal class LatestSamsung : SmartPhone
     {
-        internal  void BrowseWeb(string webAdress)
+        internal override void BrowseWeb(string webAdress)
         {
             //browse web
         }
@@ -12,7 +12,7 @@
             //make phone call
         }
 
-        internal  void SendEmail(string emailAdress)
+        internal override void SendEmail(string emailAdress)
         {
             //send email
         }
