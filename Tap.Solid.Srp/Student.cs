@@ -11,12 +11,13 @@ namespace Tap.Solid.Srp
         public string Email { get; set; }
         public string SocialSecurityNumber { get; set; }
         private readonly EmailValidator emailValidatorObject;
-        private readonly SqlConection sqlConectionObject;
+        private readonly StudentRepo studentRepoObject;
         private readonly SendMail sendMailObject;
         public Student()
         {
             emailValidatorObject.email = Email;
             sendMailObject = new SendMail(this.Email);
+            studentRepoObject=new StudentRepo();
         }
         public string AddStudent()
         {
@@ -24,9 +25,9 @@ namespace Tap.Solid.Srp
                 return "cc";
             if (SocialSecurityNumber.Length != 13)
                 return "Invalid social security number!";
-            sqlConectionObject.executeSqlConector();
+            studentRepoObject.AddStudent(this);
             sendMailObject.makeMessage(Name);
-            sqlConectionObject.client.Send(sendMailObject.mailMessageObject);
+            sendMailObject.client.Send(sendMailObject.mailMessageObject);
             return "Student enroled!";
         }
     }

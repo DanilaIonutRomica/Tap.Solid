@@ -10,7 +10,15 @@ namespace Tap.Solid.Srp
     public class SendMail
     {
         public MailMessage mailMessageObject;
-        
+        public SmtpClient client;
+        public SendMail()
+        {
+            this.client = new SmtpClient
+            {
+                Port = 25,
+                Host = "smtp.demo.exercise"
+            };
+        }
         public SendMail(String Email)
         {
             this.mailMessageObject = new MailMessage("demo@solid.princiles.srp", Email);
