@@ -1,6 +1,6 @@
 ﻿namespace Tap.Solid.Isp
 {
-    internal class Car : IVehicle
+    internal class Car : IMovingVehicle,ISteeringVehicle
     {
         public void MoveBackwards()
         {
