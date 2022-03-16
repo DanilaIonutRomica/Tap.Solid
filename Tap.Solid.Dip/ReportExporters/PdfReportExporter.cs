@@ -2,7 +2,7 @@
 
 namespace Tap.Solid.Dip.ReportExporters
 {
-    public class PdfReportExporter
+    public class PdfReportExporter:IPdfReportExporter
     {
         public void Export(List<Student> students)
         {

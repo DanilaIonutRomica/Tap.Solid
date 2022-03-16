@@ -1,12 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Tap.Solid.Dip;
+using Tap.Solid.Dip.ReportExporters;
 using Tap.Solid.Dip.Services;
 
 using IHost host = Host.CreateDefaultBuilder(args)
                         .ConfigureServices((_, services) =>
                             services.AddTransient<IReportService, ReportService>()
                             //@Students: Please make use of the code below to configure your Dependency injection, for Exercise 5 - DIP
-                            //.AddTransient<IYourInterface, YourClass>()
+                            .AddTransient<IStudentRepository, StudentRepository>()
+                            .AddTransient<IPdfReportExporter, PdfReportExporter>()
                             //.AddTransient<IOtherInterface, YourOtherClass>()
                             )
                         .Build();

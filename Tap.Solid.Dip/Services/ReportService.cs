@@ -4,13 +4,19 @@ namespace Tap.Solid.Dip.Services
 {
     public class ReportService : IReportService
     {
+        private readonly IStudentRepository studentRepository;
+        private readonly IPdfReportExporter pdfReportExporter;
+        public ReportService(IStudentRepository studentRepository, IPdfReportExporter pdfReportExporter)
+        {
+            this.studentRepository = studentRepository;
+            this.pdfReportExporter = pdfReportExporter;
+
+        }
         public void GenerateReport()
         {
-            var studentsRepository = new StudentRepository();
-            var students = studentsRepository.GetAll();
-
-            var reportExporter = new PdfReportExporter();
-            reportExporter.Export(students);
+            
+            var students = studentRepository.GetAll();
+            pdfReportExporter.Export(students);
         }
     }
 }
